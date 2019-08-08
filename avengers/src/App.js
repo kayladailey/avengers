@@ -1,18 +1,26 @@
-import React from 'react';
-import {Route} from "react-router-dom";
+import React, { Component } from 'react';
+import { Route } from "react-router-dom";
 import './App.css';
-import Home from "./Components/Home";
+import Home from './Components/Home';
+import AvengersList from "./Components/AvengersList";
+import avengers from "./Components/data";
 
 
-
-
-function App() {
+class App extends Component {
+ constructor () {
+   super();
+   this.state = {
+     avengers:avengers
+   };
+  }
+   render(){
   return (
     <div className="App">
-     <Route exact path= "/" component={Home}/>
-     <Route path= "/avengers" component={AvengersList}/>
+     <Route exact path="/" component={Home}/>
+     <Route path="/avengers" component={AvengersList}/>
     </div>
   );
+ }
 }
 
 export default App;
